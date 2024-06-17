@@ -1,0 +1,10 @@
+apiVersion: v2
+name: lkextras
+description: A Helm chart for deploying the LKExtras operator, extending the functionality of Linode Kubernetes Engine (LKE) by automating node taint management.
+type: application
+version: 0.1.0
+appVersion: "0.0.1"
+
+maintainers:
+  - name: Tamir Ohana
+    email: tohana@akamai.com

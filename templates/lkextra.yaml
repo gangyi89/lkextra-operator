@@ -1,0 +1,13 @@
+apiVersion: api.lkextras.com/v1alpha1
+kind: LKExtras
+metadata:
+  labels:
+    app.kubernetes.io/name: lkextras
+    app.kubernetes.io/instance: lke-extensions
+    app.kubernetes.io/part-of: Tamir_Ohana
+    app.kubernetes.io/managed-by: helm
+    app.kubernetes.io/created-by: Tamir_Ohana
+  name: lke-extensions
+spec:
+  nodePools:
+    {{- toYaml .Values.nodePools | nindent 4 }}

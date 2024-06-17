@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lkextras-operator
+  namespace: {{ .Values.namespace | default "default" }}
+  labels:
+    app.kubernetes.io/name: lkextras-operator
+    app.kubernetes.io/instance: lkextras
+    app.kubernetes.io/part-of: Tamir_Ohana
+    app.kubernetes.io/managed-by: helm
+    app.kubernetes.io/created-by: Tamir_Ohana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: lkextras-operator
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: lkextras-operator
+    spec:
+      containers:
+        - name: lkextras-operator
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+      imagePullSecrets:
+        {{- toYaml .Values.imagePullSecrets | nindent 8 }}
+      tolerations:
+        {{- toYaml .Values.tolerations | nindent 8 }}
+      affinity:
+        {{- toYaml .Values.affinity | nindent 8 }}

@@ -1,0 +1,33 @@
+# The Docker image to use for the LKExtras operator
+image:
+  # The image repository
+  repository: lkextras.azurecr.io/lkextras-operator
+  # The policy for pulling the image
+  pullPolicy: IfNotPresent
+  # The image tag
+  tag: "0.0.1"
+
+namespace: lkextras
+
+# Image pull secrets (if needed for pulling from a private registry)
+imagePullSecrets: []
+
+# Tolerations to apply to the LKExtras operator Pod
+tolerations: []
+
+# Node affinity settings for the LKExtras operator Pod
+affinity: {}
+
+# A list of node pools to manage
+nodePools: []
+  # Each entry in this list represents a node pool
+  # Here's an example of how to specify a node pool:
+  #
+  # - nodePoolID: "<node-pool-id>"
+  #   taints:
+  #     - key: "<taint-key>"
+  #       value: "<taint-value>"
+  #       effect: "NoSchedule" # or "PreferNoSchedule"
+  #
+  # In this example, replace <node-pool-id>, <taint-key>, and <taint-value> 
+  # with the ID of your node pool, the key for your taint, and the value for your taint, respectively.
